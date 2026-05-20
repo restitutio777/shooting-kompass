@@ -243,6 +243,255 @@
       *, *::before, *::after { transition: none !important; animation: none !important; }
     }
 
+    /* ===== INFOGRAFIKEN ===== */
+    .infographic {
+      background: #FBF8F1;
+      border: 1px solid #E8E2D6;
+      border-radius: 16px;
+      padding: 18px 18px 20px;
+    }
+    .infographic-eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #6F6258;
+      margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .infographic-eyebrow::before {
+      content: ''; width: 14px; height: 1px; background: #C6A881;
+    }
+
+    /* — Journey Map (Welcome) — */
+    .journey-map {
+      display: grid;
+      grid-template-columns: 1fr 16px 1fr 16px 1fr;
+      gap: 0;
+      align-items: stretch;
+    }
+    .journey-phase {
+      text-align: center;
+      padding: 4px 6px;
+    }
+    .journey-phase-num {
+      width: 30px; height: 30px;
+      border-radius: 999px;
+      background: #1F1A14;
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Fraunces', serif;
+      font-size: 14px;
+      margin: 0 auto 8px;
+    }
+    .journey-phase-title {
+      font-weight: 500;
+      font-size: 13px;
+      color: #1F1A14;
+      line-height: 1.3;
+    }
+    .journey-phase-sub {
+      font-size: 11.5px;
+      color: #6F6258;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+    .journey-line {
+      align-self: center;
+      height: 1px;
+      background: #C6A881;
+      margin-top: -16px; /* align with circles vertically */
+    }
+    @media (max-width: 560px) {
+      .journey-map {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .journey-line { display: none; }
+    }
+
+    /* — Time calculator (Scope) — */
+    .time-calc-equation {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .time-calc-cell { flex: 1; text-align: center; }
+    .time-calc-value {
+      font-family: 'Fraunces', serif;
+      font-size: 26px;
+      line-height: 1;
+      color: #1F1A14;
+      letter-spacing: -0.01em;
+    }
+    .time-calc-label {
+      font-size: 11px;
+      color: #6F6258;
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .time-calc-op {
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      color: #C6A881;
+      flex: 0 0 auto;
+      padding: 0 4px;
+    }
+    .time-calc-bar {
+      height: 8px;
+      border-radius: 999px;
+      background: #ECE5D5;
+      overflow: hidden;
+      margin: 4px 0 8px;
+      position: relative;
+    }
+    .time-calc-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #C6A881 0%, #1F1A14 100%);
+      border-radius: 999px;
+      transition: width .6s cubic-bezier(.2,.7,.2,1);
+      width: 0%;
+    }
+    .time-calc-bar-marks {
+      position: relative;
+      height: 0;
+    }
+    .time-calc-mark {
+      position: absolute;
+      top: -14px;
+      width: 1px;
+      height: 6px;
+      background: #C6A881;
+      opacity: .5;
+    }
+    .time-calc-labels {
+      display: flex; justify-content: space-between;
+      font-size: 10.5px;
+      color: #6F6258;
+      margin-top: 4px;
+    }
+    .time-calc-labels span:nth-child(2),
+    .time-calc-labels span:nth-child(3) {
+      text-align: center;
+    }
+    .time-calc-labels span:last-child { text-align: right; }
+    .time-calc-verdict {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid #E8E2D6;
+      font-size: 13px;
+      color: #3A332B;
+      line-height: 1.5;
+    }
+    .time-calc-verdict strong { color: #1F1A14; font-weight: 500; }
+    @media (max-width: 480px) {
+      .time-calc-value { font-size: 20px; }
+      .time-calc-label { font-size: 10px; }
+      .time-calc-op { font-size: 17px; }
+    }
+
+    /* — Style Quadrant — */
+    .style-quadrant {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      aspect-ratio: 1;
+      margin: 4px auto 0;
+    }
+    .style-quadrant svg { width: 100%; height: 100%; }
+    .style-quadrant .axis-line { stroke: #E8E2D6; stroke-width: 1; }
+    .style-quadrant .axis-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      fill: #6F6258;
+    }
+    .style-quadrant .dot-circle {
+      fill: #FBF8F1;
+      stroke: #C6A881;
+      stroke-width: 2;
+      transition: all .3s ease;
+    }
+    .style-quadrant .dot-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11.5px;
+      fill: #6F6258;
+      transition: all .3s ease;
+    }
+    .style-quadrant g[data-active="true"] .dot-circle {
+      fill: #1F1A14;
+      stroke: #1F1A14;
+      r: 9;
+    }
+    .style-quadrant g[data-active="true"] .dot-label {
+      fill: #1F1A14;
+      font-weight: 500;
+    }
+
+    /* — Timeline (Timing) — */
+    .timeline-graphic {
+      position: relative;
+      padding: 18px 12px 60px;
+    }
+    .timeline-bar {
+      height: 2px;
+      background: #ECE5D5;
+      position: relative;
+      border-radius: 999px;
+    }
+    .timeline-bar-fill {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      background: #C6A881;
+      border-radius: 999px;
+    }
+    .timeline-stops {
+      position: absolute;
+      left: 12px; right: 12px;
+      top: 18px;
+      height: 2px;
+    }
+    .timeline-stop {
+      position: absolute;
+      transform: translateX(-50%);
+      top: 0;
+    }
+    .timeline-stop-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: #1F1A14;
+      border: 3px solid #FBF8F1;
+      box-shadow: 0 0 0 1px #1F1A14;
+      transform: translateY(-5px);
+    }
+    .timeline-stop-label {
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      font-size: 12px;
+      color: #1F1A14;
+      font-weight: 500;
+      text-align: center;
+    }
+    .timeline-stop-sub {
+      font-size: 10.5px;
+      color: #6F6258;
+      margin-top: 2px;
+      font-weight: 400;
+      text-align: center;
+    }
+    @media (max-width: 560px) {
+      .timeline-stop-label { font-size: 11px; }
+      .timeline-stop:nth-child(2) .timeline-stop-label,
+      .timeline-stop:nth-child(3) .timeline-stop-label { font-size: 10.5px; }
+    }
+
     /* ===== PRINT SHEET ===== */
     #printSheet { display: none; }
 
@@ -612,6 +861,30 @@
       lede: `Sie planen ein Mitarbeitershooting — vielleicht das erste, vielleicht das fünfte. So oder so: in den nächsten rund acht Minuten gehen wir gemeinsam alles durch, worauf es ankommt. Sie lernen unterwegs, was ein gutes Portrait wirklich ausmacht (Spoiler: nicht die Megapixel). Ich erfahre, was ich brauche, um Ihnen ein ehrliches, passendes Angebot zu machen.`,
       lede2: `Am Ende halten Sie ein PDF in der Hand: Ihre Antworten, eine fertige Briefing-Mail für Ihre Mitarbeitenden, eine Checkliste und ein klarer Fahrplan. Pausieren ist erlaubt — Ihre Eingaben bleiben im Browser gespeichert, bis Sie weitermachen.`,
       fields: [
+        { id: '_journeyMap', type: 'info', html: `
+          <div class="infographic">
+            <div class="infographic-eyebrow">Ihre Reise · 14 Schritte · ca. 8 Min</div>
+            <div class="journey-map">
+              <div class="journey-phase">
+                <div class="journey-phase-num">1</div>
+                <div class="journey-phase-title">Über Sie &amp; Ihr Vorhaben</div>
+                <div class="journey-phase-sub">Unternehmen, Verwendung, Umfang</div>
+              </div>
+              <div class="journey-line"></div>
+              <div class="journey-phase">
+                <div class="journey-phase-num">2</div>
+                <div class="journey-phase-title">Stil, Ort &amp; Vorbereitung</div>
+                <div class="journey-phase-sub">Stimmung, Location, Visagistin, Briefing, Rechte</div>
+              </div>
+              <div class="journey-line"></div>
+              <div class="journey-phase">
+                <div class="journey-phase-num">3</div>
+                <div class="journey-phase-title">Lieferung, Termin &amp; Budget</div>
+                <div class="journey-phase-sub">Bilder, Wunschtermin, Budget, offene Fragen</div>
+              </div>
+            </div>
+          </div>
+        `},
         { id: '_aboutMe', type: 'info', html: `
           <div class="rounded-2xl border border-line bg-paper p-5">
             <div class="flex items-center gap-3.5 mb-3.5">
@@ -703,6 +976,39 @@
       fields: [
         { id: 'numPeople', label: 'Anzahl Personen (geschätzt)', type: 'number', placeholder: 'z. B. 24', min: 1, max: 2000, required: true,
           help: 'Eine grobe Schätzung reicht — wir verfeinern das später gemeinsam.' },
+        { id: '_timeCalc', type: 'info', html: `
+          <div class="infographic" id="timeCalcWrap">
+            <div class="infographic-eyebrow">Zeitkalkulation · live</div>
+            <div class="time-calc-equation">
+              <div class="time-calc-cell">
+                <div class="time-calc-value" data-tc-personen>—</div>
+                <div class="time-calc-label">Personen</div>
+              </div>
+              <div class="time-calc-op">×</div>
+              <div class="time-calc-cell">
+                <div class="time-calc-value">15</div>
+                <div class="time-calc-label">Min / Person</div>
+              </div>
+              <div class="time-calc-op">=</div>
+              <div class="time-calc-cell">
+                <div class="time-calc-value" data-tc-hours>—</div>
+                <div class="time-calc-label">Stunden</div>
+              </div>
+            </div>
+            <div class="time-calc-bar">
+              <div class="time-calc-bar-fill" data-tc-fill></div>
+            </div>
+            <div class="time-calc-labels">
+              <span>0 h</span>
+              <span>4 h<br/>halber Tag</span>
+              <span>8 h<br/>ein Tag</span>
+              <span>16 h<br/>zwei Tage</span>
+            </div>
+            <div class="time-calc-verdict" data-tc-verdict>
+              Geben Sie eine Anzahl ein — ich rechne live mit, wie viele Stunden oder Tage wir einplanen.
+            </div>
+          </div>
+        `},
         { id: 'hierarchy', label: 'Welche Ebenen sind dabei?', help: 'Mehrfachauswahl. Bei Hierarchie-Mix plane ich Blöcke; bei „nur eine Ebene" wird der Tag entspannter.', type: 'multi', required: true, options: [
           { v: 'gf',       title: 'Geschäftsführung / Vorstand' },
           { v: 'leitung',  title: 'Bereichs- & Teamleitung' },
@@ -729,6 +1035,45 @@
       title: 'Welche Stimmung passt zu Ihnen?',
       why: 'Es gibt keinen „richtigen" Stil — aber einen, der zu Ihrer Marke passt wie der gute Schuh. Die Karten unten sind bewusst abstrakt, damit Sie sich nicht zu früh festlegen. Wenn Sie konkrete Beispielbilder aus meinem Portfolio möchten, fragen Sie unten danach — ich schicke Ihnen eine kuratierte Auswahl. Übrigens: niemand muss sich auf einen Stil festnageln. Klassisch fürs Profilbild, authentisch für die Team-Seite — geht hervorragend.',
       fields: [
+        { id: '_styleQuadrant', type: 'info', html: `
+          <div class="infographic">
+            <div class="infographic-eyebrow">Die vier Stile auf einer Karte</div>
+            <div class="style-quadrant">
+              <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <!-- Axes -->
+                <line class="axis-line" x1="40" y1="200" x2="360" y2="200"/>
+                <line class="axis-line" x1="200" y1="40" x2="200" y2="360"/>
+
+                <!-- Axis labels -->
+                <text class="axis-label" x="200" y="28" text-anchor="middle">Zurückhaltend</text>
+                <text class="axis-label" x="200" y="380" text-anchor="middle">Markant</text>
+                <text class="axis-label" x="36" y="204" text-anchor="end">Klassisch</text>
+                <text class="axis-label" x="364" y="204" text-anchor="start">Zeitgemäß</text>
+
+                <!-- Dots -->
+                <g data-style="klassisch" data-active="false">
+                  <circle class="dot-circle" cx="120" cy="128" r="7"/>
+                  <text class="dot-label" x="120" y="112" text-anchor="middle">Klassisch Business</text>
+                </g>
+                <g data-style="modern" data-active="false">
+                  <circle class="dot-circle" cx="278" cy="120" r="7"/>
+                  <text class="dot-label" x="278" y="104" text-anchor="middle">Modern Clean</text>
+                </g>
+                <g data-style="authentisch" data-active="false">
+                  <circle class="dot-circle" cx="172" cy="268" r="7"/>
+                  <text class="dot-label" x="172" y="288" text-anchor="middle">Authentisch Warm</text>
+                </g>
+                <g data-style="editorial" data-active="false">
+                  <circle class="dot-circle" cx="298" cy="296" r="7"/>
+                  <text class="dot-label" x="298" y="316" text-anchor="middle">Editorial / Markant</text>
+                </g>
+              </svg>
+            </div>
+            <div class="text-[12.5px] text-muted leading-relaxed mt-2 text-center">
+              Die Karte zeigt: wie <em>klassisch</em> oder <em>zeitgemäß</em>, wie <em>zurückhaltend</em> oder <em>markant</em>. Sobald Sie unten wählen, leuchtet Ihr Stil hier auf.
+            </div>
+          </div>
+        `},
         { id: 'styleChoice', label: 'Welche Stil-Richtung passt zu Ihnen?', type: 'styles', required: true, options: [
           { v: 'klassisch', title: 'Klassisch Business',
             mood: 'Vertrauen',
@@ -941,6 +1286,32 @@
       title: "Wann soll's losgehen?",
       why: `Realistischer Vorlauf: ${CONFIG.leadTimeWeeks}. Mein Lieblings-Zeitfenster: Dienstag bis Donnerstag, vormittags — da sind alle frisch, niemand im Wochenend-Modus, niemand im Montags-Frust. Freitag nachmittags ist meine „nur wenn es nicht anders geht"-Zone.`,
       fields: [
+        { id: '_weekTimeline', type: 'info', html: `
+          <div class="infographic">
+            <div class="infographic-eyebrow">So sieht der typische Verlauf aus</div>
+            <div class="timeline-graphic">
+              <div class="timeline-bar"></div>
+              <div class="timeline-stops">
+                <div class="timeline-stop" style="left: 0%">
+                  <div class="timeline-stop-dot"></div>
+                  <div class="timeline-stop-label">Heute<div class="timeline-stop-sub">Ihre Anfrage</div></div>
+                </div>
+                <div class="timeline-stop" style="left: 18%">
+                  <div class="timeline-stop-dot"></div>
+                  <div class="timeline-stop-label">+1 Woche<div class="timeline-stop-sub">Angebot</div></div>
+                </div>
+                <div class="timeline-stop" style="left: 70%">
+                  <div class="timeline-stop-dot"></div>
+                  <div class="timeline-stop-label">+ 4–6 Wo<div class="timeline-stop-sub">Shooting-Tag</div></div>
+                </div>
+                <div class="timeline-stop" style="left: 100%">
+                  <div class="timeline-stop-dot"></div>
+                  <div class="timeline-stop-label">+ 7–8 Wo<div class="timeline-stop-sub">Finale Bilder</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `},
         { id: 'desiredDate', label: 'Wunschdatum oder -zeitraum', type: 'text', placeholder: 'z. B. „in KW 38" oder „erste Septemberhälfte"' },
         { id: 'flexibility', label: 'Wie flexibel sind Sie?', type: 'radio', options: [
           { v: 'fix',          title: 'Termin steht bereits fest' },
@@ -1369,6 +1740,8 @@
             const lbl = r.closest('.opt, .style-card');
             if (lbl) lbl.classList.toggle('selected', r.checked);
           });
+          // Hook: style quadrant updates when styleChoice changes
+          if (id === 'styleChoice') updateStyleQuadrant(scope, el.value);
         } else if (el.type === 'checkbox' && isMulti) {
           const set = new Set(Array.isArray(state.answers[id]) ? state.answers[id] : []);
           if (el.checked) set.add(el.value); else set.delete(el.value);
@@ -1380,6 +1753,8 @@
         } else {
           state.answers[id] = el.value;
         }
+        // Hook: time calculator updates when numPeople changes
+        if (id === 'numPeople') updateTimeCalc(scope, el.value);
         // Clear any previous error on this field
         if (state.errors[id]) {
           delete state.errors[id];
@@ -1392,6 +1767,68 @@
 
       el.addEventListener('input', update);
       el.addEventListener('change', update);
+    });
+
+    // Initialize dynamic infographics on render
+    const calc = scope.querySelector('#timeCalcWrap');
+    if (calc) updateTimeCalc(scope, state.answers.numPeople);
+    const quad = scope.querySelector('.style-quadrant');
+    if (quad) updateStyleQuadrant(scope, state.answers.styleChoice);
+  }
+
+  // ============================================================
+  // INFOGRAFIK-LOGIK
+  // ============================================================
+  function updateTimeCalc(scope, raw) {
+    const wrap = scope.querySelector('#timeCalcWrap');
+    if (!wrap) return;
+    const n = Math.max(0, parseInt(raw, 10) || 0);
+    const personenEl = wrap.querySelector('[data-tc-personen]');
+    const hoursEl    = wrap.querySelector('[data-tc-hours]');
+    const fillEl     = wrap.querySelector('[data-tc-fill]');
+    const verdictEl  = wrap.querySelector('[data-tc-verdict]');
+
+    if (personenEl) personenEl.textContent = n > 0 ? n : '—';
+
+    const minutes = n * 15;
+    const hours = Math.round((minutes / 60) * 10) / 10;
+    if (hoursEl) hoursEl.textContent = n > 0 ? (hours % 1 === 0 ? hours.toFixed(0) : hours.toString().replace('.', ',')) : '—';
+
+    // Bar maps 0..16h to 0..100%
+    const pct = Math.min(100, (hours / 16) * 100);
+    if (fillEl) fillEl.style.width = `${pct}%`;
+
+    let verdict;
+    if (n === 0) {
+      verdict = `Geben Sie eine Anzahl ein — ich rechne live mit, wie viele Stunden oder Tage wir einplanen.`;
+    } else if (hours <= 4) {
+      verdict = `<strong>Ein halber Drehtag.</strong> Vor- oder Nachmittag reicht — entspannt machbar.`;
+    } else if (hours <= 7) {
+      verdict = `<strong>Ein voller Drehtag.</strong> Wir starten morgens und sind nachmittags durch — mit Mittagspause.`;
+    } else if (hours <= 9) {
+      verdict = `<strong>Ein langer Drehtag.</strong> Eng, aber machbar — wir planen Pausen großzügig ein.`;
+    } else if (hours <= 14) {
+      verdict = `<strong>Zwei Drehtage.</strong> Mit einer Übernachtung dazwischen ist das deutlich entspannter — für Sie und für uns.`;
+    } else {
+      verdict = `<strong>Drei oder mehr Tage.</strong> Bei dieser Größe lohnt es sich, das Ganze über zwei Wochen zu staffeln (z. B. ein Standort pro Tag).`;
+    }
+    if (verdictEl) verdictEl.innerHTML = verdict;
+  }
+
+  // Quadrant-Positionen (x: 0=klassisch ... 1=zeitgemäß, y: 0=zurückhaltend ... 1=markant)
+  const STYLE_POSITIONS = {
+    klassisch:    { x: 0.20, y: 0.22 },
+    modern:       { x: 0.78, y: 0.20 },
+    authentisch:  { x: 0.42, y: 0.70 },
+    editorial:    { x: 0.78, y: 0.80 },
+  };
+
+  function updateStyleQuadrant(scope, selectedValue) {
+    const quad = scope.querySelector('.style-quadrant');
+    if (!quad) return;
+    quad.querySelectorAll('[data-style]').forEach(g => {
+      const isActive = g.dataset.style === selectedValue;
+      g.dataset.active = isActive ? 'true' : 'false';
     });
   }
 
