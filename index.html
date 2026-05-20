@@ -227,6 +227,269 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition: none !important; animation: none !important; }
     }
+
+    /* ===== PRINT SHEET ===== */
+    #printSheet { display: none; }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 1.8cm 1.6cm 1.8cm 1.6cm;
+      }
+      html, body { background: #fff !important; }
+      body > *:not(#printSheet) { display: none !important; }
+      #printSheet { display: block !important; }
+
+      .print-page {
+        page-break-after: always;
+        break-after: page;
+        font-family: 'Inter', sans-serif;
+        color: #1F1A14;
+        line-height: 1.55;
+      }
+      .print-page:last-child { page-break-after: auto; }
+
+      .print-eyebrow {
+        font-size: 9pt;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: #6F6258;
+        margin-bottom: 8mm;
+      }
+      .print-h1 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 30pt;
+        line-height: 1.1;
+        margin: 0 0 6mm 0;
+        color: #1F1A14;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+      }
+      .print-h2 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 18pt;
+        line-height: 1.2;
+        margin: 0 0 5mm 0;
+        color: #1F1A14;
+        font-weight: 500;
+      }
+      .print-h3 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 13pt;
+        line-height: 1.3;
+        margin: 0 0 3mm 0;
+        color: #1F1A14;
+        font-weight: 500;
+      }
+      .print-lede {
+        font-size: 11pt;
+        color: #3A332B;
+        margin-bottom: 6mm;
+        max-width: 14cm;
+      }
+      .print-body {
+        font-size: 10pt;
+        color: #1F1A14;
+      }
+      .print-meta {
+        font-size: 9.5pt;
+        color: #6F6258;
+        margin-top: 8mm;
+      }
+      .print-rule {
+        border: 0;
+        border-top: 1px solid #1F1A14;
+        margin: 6mm 0 4mm 0;
+      }
+      .print-rule-soft {
+        border: 0;
+        border-top: 1px solid #E8E2D6;
+        margin: 4mm 0;
+      }
+
+      .print-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 6mm;
+        margin: 10mm 0;
+        padding: 6mm 0;
+        border-top: 1px solid #1F1A14;
+        border-bottom: 1px solid #1F1A14;
+      }
+      .print-stat-label {
+        font-size: 8.5pt;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #6F6258;
+        margin-bottom: 2mm;
+      }
+      .print-stat-value {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 15pt;
+        line-height: 1.2;
+        color: #1F1A14;
+      }
+
+      .print-toc {
+        margin-top: 18mm;
+        font-size: 10pt;
+        color: #3A332B;
+      }
+      .print-toc-title {
+        font-size: 9pt;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: #6F6258;
+        margin-bottom: 4mm;
+      }
+      .print-toc ol {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .print-toc li {
+        padding: 2.5mm 0;
+        border-top: 1px solid #E8E2D6;
+        display: flex;
+        gap: 8mm;
+        align-items: baseline;
+      }
+      .print-toc li:last-child { border-bottom: 1px solid #E8E2D6; }
+      .print-toc li .n {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 11pt;
+        color: #6F6258;
+        width: 8mm;
+      }
+
+      .print-group {
+        margin-bottom: 7mm;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+      .print-row {
+        display: flex;
+        gap: 6mm;
+        font-size: 9.5pt;
+        padding: 1.5mm 0;
+        border-top: 1px solid #F0EAD9;
+        align-items: baseline;
+      }
+      .print-row:first-of-type { border-top: 0; }
+      .print-key {
+        flex: 0 0 60mm;
+        color: #6F6258;
+      }
+      .print-val {
+        color: #1F1A14;
+        flex: 1;
+      }
+      .print-question {
+        background: #FFF8EA;
+        border-left: 2px solid #C6A881;
+        padding: 3mm 4mm;
+        margin: 2mm 0;
+        font-size: 9.5pt;
+      }
+
+      .print-email {
+        background: #FBF8F1;
+        border: 1px solid #E8E2D6;
+        padding: 6mm 7mm;
+        font-size: 10pt;
+        line-height: 1.6;
+        font-family: 'Inter', sans-serif;
+        white-space: pre-wrap;
+        margin-top: 4mm;
+      }
+      .print-email-meta {
+        font-size: 9pt;
+        color: #6F6258;
+        margin-bottom: 2mm;
+      }
+
+      .print-checklist {
+        margin-top: 4mm;
+      }
+      .print-checklist-section {
+        margin-bottom: 5mm;
+        page-break-inside: avoid;
+      }
+      .print-checklist-title {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 11.5pt;
+        color: #1F1A14;
+        margin-bottom: 2mm;
+      }
+      .print-check {
+        display: flex;
+        align-items: flex-start;
+        gap: 3mm;
+        padding: 1.5mm 0;
+        font-size: 9.5pt;
+        color: #1F1A14;
+      }
+      .print-check-box {
+        width: 3.5mm;
+        height: 3.5mm;
+        border: 1px solid #1F1A14;
+        border-radius: 0.7mm;
+        flex-shrink: 0;
+        margin-top: 0.7mm;
+      }
+
+      .print-roadmap {
+        margin-top: 4mm;
+        counter-reset: rm;
+      }
+      .print-roadmap-step {
+        display: flex;
+        gap: 6mm;
+        padding: 3mm 0;
+        border-top: 1px solid #E8E2D6;
+        page-break-inside: avoid;
+      }
+      .print-roadmap-step:first-child { border-top: 0; }
+      .print-roadmap-num {
+        counter-increment: rm;
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 16pt;
+        color: #C6A881;
+        line-height: 1;
+        flex-shrink: 0;
+        width: 10mm;
+      }
+      .print-roadmap-num::before { content: counter(rm, decimal-leading-zero); }
+      .print-roadmap-step h4 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 12pt;
+        color: #1F1A14;
+        margin: 0 0 1mm 0;
+        font-weight: 500;
+      }
+      .print-roadmap-step p {
+        font-size: 9.5pt;
+        color: #3A332B;
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      .print-footer {
+        margin-top: auto;
+        padding-top: 8mm;
+        border-top: 1px solid #1F1A14;
+        font-size: 8.5pt;
+        color: #6F6258;
+        display: flex;
+        justify-content: space-between;
+      }
+      .print-signature {
+        margin-top: 8mm;
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 12pt;
+        color: #1F1A14;
+      }
+    }
   </style>
 </head>
 <body class="min-h-screen">
@@ -269,14 +532,20 @@
     </footer>
   </main>
 
+  <!-- Print-Sheet: nur sichtbar in der Druckansicht -->
+  <div id="printSheet" aria-hidden="true"></div>
+
   <script>
   // ============================================================
   // CONFIG — hier anpassen
   // ============================================================
   const CONFIG = {
     email: 'restitutio@posteo.de',
+    phone: '',                           // optional — z. B. '+49 …', erscheint im Header & PDF
     photographerName: 'Philippe',
+    photographerFullName: 'Philippe',    // für PDF-Unterschrift
     studioName: 'intuitive fotografie',
+    website: '',                         // z. B. 'https://intuitive-fotografie.de'
     leadTimeWeeks: '4–6 Wochen',
   };
 
@@ -324,12 +593,23 @@
     {
       id: 'welcome',
       kicker: 'Hallo',
-      title: 'Schön, dass ihr eure Mitarbeitenden ins beste Licht rücken wollt.',
-      lede: `Mein Name ist ${CONFIG.photographerName}. Ich fotografiere Menschen in Unternehmen — gemeinsam mit meiner Visagistin. In den nächsten rund 8 Minuten führe ich euch durch alle Punkte, die für ein gelungenes Shooting wichtig sind.`,
-      lede2: `Ihr lernt unterwegs, worauf es wirklich ankommt — und ich erfahre, was ich brauche, um euch ein passendes Angebot zu machen. Zwischendurch dürft ihr jederzeit eine Frage hinterlassen. Pausieren geht auch — eure Eingaben bleiben im Browser gespeichert.`,
+      title: 'Schön, dass Sie Ihre Mitarbeitenden ins beste Licht rücken wollen.',
+      lede: `Mein Name ist ${CONFIG.photographerName}. Ich fotografiere seit über zehn Jahren Menschen in Unternehmen — gemeinsam mit meiner Visagistin. In den nächsten rund 8 Minuten gehen wir gemeinsam alles durch, was für ein gelungenes Shooting wichtig ist.`,
+      lede2: `Sie lernen unterwegs, worauf es wirklich ankommt — und ich erfahre, was ich brauche, um Ihnen ein passendes Angebot zu machen. Am Ende bekommen Sie eine schöne PDF-Übersicht zum Mitnehmen und Weitergeben — inklusive fertiger Briefing-Mail für Ihre Mitarbeitenden. Pausieren ist jederzeit möglich; Ihre Eingaben bleiben im Browser gespeichert.`,
       fields: [
-        { id: 'contactFirstName', label: 'Wie heißt ihr?', type: 'text', placeholder: 'Vorname', required: true, autocomplete: 'given-name' },
-        { id: 'contactRole', label: 'In welcher Rolle?', type: 'text', placeholder: 'z. B. HR, Marketing, Geschäftsführung', required: true, autocomplete: 'organization-title' },
+        { id: '_aboutMe', type: 'info', html: `
+          <div class="rounded-2xl border border-line bg-paper p-5 flex items-start gap-4">
+            <div class="w-14 h-14 rounded-full bg-ink text-cream font-display flex items-center justify-center text-2xl shrink-0">·</div>
+            <div>
+              <div class="font-display text-lg leading-tight">Wer Sie hier durchführt</div>
+              <div class="text-[14px] text-muted mt-1.5 leading-relaxed">
+                Ich bin ${CONFIG.photographerName}, Fotograf. Ich arbeite seit Jahren mit Mittelstand und Konzern und kenne die typischen Sorgen rund um Mitarbeitershootings — von der Visagistin-Logistik bis zur DSGVO. Wenn Sie zwischendurch lieber telefonieren mögen: Sie erreichen mich per Mail unter <a href="mailto:${CONFIG.email}" class="underline">${CONFIG.email}</a>${CONFIG.phone ? ` oder ${escapeHtml(CONFIG.phone)}` : ''}.
+              </div>
+            </div>
+          </div>
+        `},
+        { id: 'contactFirstName', label: 'Ihr Vorname', help: 'Damit ich Sie persönlich ansprechen kann.', type: 'text', placeholder: 'z. B. Sarah', required: true, autocomplete: 'given-name' },
+        { id: 'contactRole', label: 'Ihre Rolle / Funktion', help: 'Damit ich weiß, mit welcher Brille Sie auf das Shooting schauen.', type: 'text', placeholder: 'z. B. Marketing-Managerin, HR-Leitung, Geschäftsführerin', required: true, autocomplete: 'organization-title' },
       ],
       allowQuestion: false,
       nextLabel: "Los geht's",
@@ -355,12 +635,12 @@
           { v: '>1000',   title: 'Über 1.000' },
         ]},
         { id: 'companyCity', label: 'Hauptstandort (Stadt)', type: 'text', placeholder: 'z. B. Wien, München, Zürich', autocomplete: 'address-level2' },
-        { id: 'companyWebsite', label: 'Webseite', type: 'url', placeholder: 'https://…', help: 'Hilft mir, eure Bildwelt einzuordnen — optional.', autocomplete: 'url' },
-        { id: 'hasCI', label: 'Habt ihr Markenrichtlinien (CI / Brand Manual)?', type: 'radio', options: [
-          { v: 'ja',    title: 'Ja, vollständig', sub: 'Können wir teilen' },
-          { v: 'teil',  title: 'Teilweise',       sub: 'Logo & Farben vorhanden' },
-          { v: 'nein',  title: 'Noch nicht',      sub: 'Wird gerade erarbeitet' },
-          { v: 'unklar', title: 'Weiß ich nicht genau' },
+        { id: 'companyWebsite', label: 'Webseite', type: 'url', placeholder: 'https://…', help: 'Hilft mir, eure Bildsprache einzuordnen — optional.', autocomplete: 'url' },
+        { id: 'hasCI', label: 'Gibt es Markenrichtlinien?', help: 'Auch CI oder Brand Manual genannt — ein Dokument, in dem Logo, Farben, Schriften und Bildregeln festgehalten sind.', type: 'radio', options: [
+          { v: 'ja',    title: 'Ja, vollständig',       sub: 'Können wir Ihnen vor dem Shooting zur Verfügung stellen.' },
+          { v: 'teil',  title: 'Teilweise',              sub: 'Logo & Farben vorhanden, kein komplettes Manual.' },
+          { v: 'nein',  title: 'Noch nicht',             sub: 'Wird gerade erarbeitet oder bewusst offen gehalten.' },
+          { v: 'unklar', title: 'Weiß ich nicht genau',   sub: 'Müsste ich intern erfragen.' },
         ]},
       ],
     },
@@ -381,11 +661,12 @@
           { v: 'talks',      title: 'Vorträge & Präsentationen' },
           { v: 'unbekannt',  title: 'Noch unklar — beratet uns gerne' },
         ]},
-        { id: 'existingLook', label: 'Soll die bestehende Bildwelt beibehalten werden?', type: 'radio', options: [
-          { v: 'beibehalten', title: 'Beibehalten', sub: 'Wir haben eine etablierte Bildwelt, an die wir anschließen wollen.' },
-          { v: 'auffrischen', title: 'Auffrischen',  sub: 'Im Geiste der Marke, aber zeitgemäßer.' },
-          { v: 'neu',         title: 'Neuanfang',    sub: 'Die Bildsprache soll sich spürbar verändern.' },
-          { v: 'beraten',     title: 'Beratet uns',  sub: 'Wir sind offen für deinen Vorschlag.' },
+        { id: 'existingLook', label: 'Wie soll sich der Look zu bisherigen Bildern verhalten?', help: 'Mit „Bildwelt" meine ich euren bisherigen visuellen Stil — auf der Website, in Broschüren, auf Social Media.', type: 'radio', options: [
+          { v: 'beibehalten', title: 'Anschließen',     sub: 'Wir haben eine etablierte Bildwelt, an die wir konsistent anknüpfen wollen.' },
+          { v: 'auffrischen', title: 'Auffrischen',     sub: 'Im Geist der Marke, aber zeitgemäßer und frischer.' },
+          { v: 'neu',         title: 'Bewusst neu',     sub: 'Die Bildsprache soll sich spürbar verändern.' },
+          { v: 'keine',       title: 'Noch keine eigene Bildwelt', sub: 'Bisher haben wir kaum eigene Mitarbeiterfotos — wir starten praktisch bei Null.' },
+          { v: 'beraten',     title: 'Beratet uns',     sub: 'Wir sind offen für Ihren Vorschlag.' },
         ]},
       ],
     },
@@ -394,16 +675,16 @@
       id: 'scope',
       kicker: 'Umfang',
       title: 'Wie viele Mitarbeitende sollen aufgenommen werden?',
-      why: 'Daumenregel: rund 15 Minuten pro Person — inklusive Visagistin, Outfit-Check und mehreren Setups. Bei 30 Personen sind das etwa zwei halbe Drehtage. Bei Hierarchie-Mix plane ich gerne so, dass die Geschäftsführung in einem ruhigen Block kommt.',
+      why: 'Daumenregel: rund 15 Minuten pro Person — inklusive Visagistin, Outfit-Check und mehreren Aufnahmen. Bei 25 Personen passt das in einen langen Tag; bei 40+ planen wir zwei Tage. Wenn Geschäftsführung mit dabei ist, plane ich die in einem ruhigen Block (oft als erstes — Frisur und Kragen sitzen am besten morgens).',
       fields: [
         { id: 'numPeople', label: 'Anzahl Personen (geschätzt)', type: 'number', placeholder: 'z. B. 24', min: 1, max: 2000, required: true,
           help: 'Auch grob ist hilfreich — wir verfeinern das später gemeinsam.' },
-        { id: 'hierarchy', label: 'Welche Ebenen sind dabei?', type: 'multi', required: true, options: [
-          { v: 'gf',      title: 'Geschäftsführung / Vorstand' },
-          { v: 'leitung', title: 'Bereichs- & Teamleitung' },
-          { v: 'fach',    title: 'Fachkräfte / Mitarbeitende' },
-          { v: 'azubi',   title: 'Auszubildende / Trainees' },
-          { v: 'alle',    title: 'Alle gleichwertig' },
+        { id: 'hierarchy', label: 'Welche Ebenen sind dabei?', help: 'Mehrfachauswahl. Bei Hierarchie-Mix plane ich Blöcke; bei „nur eine Ebene" wird der Tag entspannter.', type: 'multi', required: true, options: [
+          { v: 'gf',       title: 'Geschäftsführung / Vorstand' },
+          { v: 'leitung',  title: 'Bereichs- & Teamleitung' },
+          { v: 'fach',     title: 'Fachkräfte / Mitarbeitende' },
+          { v: 'azubi',    title: 'Auszubildende / Trainees' },
+          { v: 'querbeet', title: 'Querbeet aus allen Ebenen' },
         ]},
         { id: 'groupShots', label: 'Sind auch Gruppen- oder Teamfotos gewünscht?', type: 'radio', options: [
           { v: 'ja',         title: 'Ja, fest eingeplant' },
@@ -422,7 +703,7 @@
       id: 'style',
       kicker: 'Stimmung',
       title: 'Welche Stimmung passt zu euch?',
-      why: 'Es gibt keinen "richtigen" Stil — aber eine richtige Wahl für eure Marke. Wählt das, was sich am ehesten anfühlt wie ihr. Wir können auch zwei Stile kombinieren — z. B. klassisch fürs Profilbild, authentisch für die Team-Seite.',
+      why: 'Es gibt keinen "richtigen" Stil — aber eine richtige Wahl für Ihre Marke. Die Karten unten sind bewusst abstrakt: sie sollen Sie nicht zu früh festlegen. Wenn Sie Beispielbilder pro Richtung sehen möchten, melden Sie das gerne als Frage an — ich schicke Ihnen eine kuratierte Auswahl aus meinem Portfolio. Übrigens: wir können auch zwei Stile kombinieren (klassisch fürs Profilbild, authentisch für die Team-Seite).',
       fields: [
         { id: 'styleChoice', label: 'Welcher Stil spricht euch am meisten an?', type: 'styles', required: true, options: [
           { v: 'klassisch', title: 'Klassisch Business',
@@ -465,7 +746,7 @@
           { v: 'extern',  title: 'An einem externen Ort',    sub: 'Event-Location, Außenstandort, Off-Site.' },
           { v: 'unklar',  title: 'Noch unklar — beratet uns' },
         ]},
-        { id: 'locationAddress', label: 'Adresse / Ort (sofern bekannt)', type: 'text', placeholder: 'Straße, PLZ, Ort' },
+        { id: 'locationAddress', label: 'Adresse / Ort', help: 'Wenn das Shooting bei euch im Haus stattfindet: bitte vollständige Adresse mit Etage / Eingang.', type: 'text', placeholder: 'Straße, PLZ, Ort, ggf. Etage', requiredIf: { id: 'locationType', value: 'inhouse' } },
         { id: 'roomReady', label: 'Habt ihr einen geeigneten Raum?', type: 'radio', options: [
           { v: 'ja',       title: 'Ja, da haben wir was Passendes' },
           { v: 'glaubeJa', title: 'Glaube ja — schauen wir gemeinsam' },
@@ -478,12 +759,12 @@
           { v: 'nein',   title: 'Eher nicht — wir improvisieren' },
           { v: 'unklar', title: 'Müsste ich prüfen' },
         ]},
-        { id: 'logistics', label: 'Logistik vor Ort', help: 'Hilfreich für mich bei der Anreise mit Equipment. Mehrfachauswahl.', type: 'multi', options: [
-          { v: 'parking',  title: 'Parkplatz / Kurzparken direkt am Eingang' },
-          { v: 'elevator', title: 'Aufzug verfügbar (falls nicht Erdgeschoss)' },
-          { v: 'wifi',     title: 'WLAN für mich vorhanden' },
-          { v: 'catering', title: 'Verpflegung wird gestellt / Kantine vor Ort' },
-          { v: 'security', title: 'Wir müssen uns am Empfang anmelden / Werksausweis' },
+        { id: 'logistics', label: 'Logistik vor Ort', help: 'Hilfreich für mich bei der Anreise mit Equipment (ich komme mit ca. 4 Cases und einem Rollkoffer). Mehrfachauswahl.', type: 'multi', options: [
+          { v: 'parking',  title: 'Parkplatz / Kurzparken direkt am Eingang', sub: 'Erspart mir 15 Minuten Schleppen.' },
+          { v: 'elevator', title: 'Aufzug verfügbar', sub: 'Wichtig wenn nicht im Erdgeschoss.' },
+          { v: 'wifi',     title: 'WLAN für mich vorhanden', sub: 'Damit ich Vorschau-Bilder direkt zeigen kann.' },
+          { v: 'catering', title: 'Verpflegung wird gestellt / Kantine vor Ort', sub: 'Sonst plane ich Pausen außerhalb.' },
+          { v: 'security', title: 'Anmeldung am Empfang / Werksausweis nötig', sub: 'Z. B. bei Industriebetrieben oder Behörden — bitte mir vorab mitteilen, damit nichts hakt.' },
           { v: 'nichts',   title: 'Nichts davon trifft zu / noch nicht klar' },
         ]},
       ],
@@ -492,14 +773,14 @@
     {
       id: 'visagist',
       kicker: 'Visagistin',
-      title: 'Visagistin — kurz erklärt',
-      why: 'Make-up bei Business-Portraits bedeutet NICHT "geschminkt aussehen". Es bedeutet: mattierte Haut (kein Glanz auf der Stirn), kaschierte Augenringe, gepflegte Haare. Auch und besonders für Männer. Das spart später viel Retusche-Aufwand — und, viel wichtiger, gibt euren Leuten Selbstvertrauen vor der Kamera. Das sieht man im Bild.',
+      title: 'Visagistin / Make-up Artist',
+      why: 'Make-up bei Business-Portraits bedeutet NICHT "geschminkt aussehen" — es bedeutet: mattierte Haut (kein Glanz auf der Stirn), kaschierte Augenringe, gepflegte Haare. Auch und besonders für Männer. Das spart später viel Retusche-Aufwand — und, wichtiger noch, gibt Ihren Leuten Selbstvertrauen vor der Kamera. Das sieht man im Bild. Eine Visagistin kommt mit eigenem mobilen Set; sie ist ein zusätzlicher Posten im Angebot (typisch 350–650 € pro Drehtag, abhängig von Personenzahl).',
       fields: [
         { id: 'visagistWanted', label: 'Visagistin einbinden?', type: 'radio', required: true, options: [
-          { v: 'alle',     title: 'Ja, für alle Mitarbeitenden' },
-          { v: 'opt',      title: 'Optional, auf Wunsch der einzelnen Person' },
-          { v: 'fuehrung', title: 'Nur für die Führungsebene' },
-          { v: 'nein',     title: 'Nein, brauchen wir nicht' },
+          { v: 'alle',     title: 'Ja, für alle Mitarbeitenden', sub: 'Mein Standard-Vorschlag. Sorgt für gleichmäßiges Ergebnis.' },
+          { v: 'opt',      title: 'Optional pro Person',          sub: 'Ihr stellt frei — manche nehmen es an, manche nicht.' },
+          { v: 'fuehrung', title: 'Nur für die Führungsebene',    sub: 'Häufig praktiziert; spart Budget.' },
+          { v: 'nein',     title: 'Nein, brauchen wir nicht',     sub: 'Bedenkt: Retusche-Aufwand danach ist höher.' },
           { v: 'beraten',  title: 'Beratet uns — wir sind unsicher' },
         ]},
         { id: 'hairStyling', label: 'Haarstyling zusätzlich gewünscht?', type: 'radio', options: [
@@ -596,11 +877,11 @@
           { v: '10+',  title: 'Mehr als 10',        sub: 'Wir besprechen, was wirklich sinnvoll ist — viel ist nicht immer hilfreich.' },
           { v: 'beraten', title: 'Beratet uns' },
         ]},
-        { id: 'formats', label: 'In welchen Formaten?', help: 'Mehrfachauswahl.', type: 'multi', options: [
-          { v: 'hoch',    title: 'Hochformat (Profilbilder, Print)' },
-          { v: 'quer',    title: 'Querformat (Header, Web-Banner)' },
-          { v: 'quadrat', title: 'Quadratisch (Social Media Posts)' },
-          { v: 'allInOne', title: 'Eine Aufnahme — Crops für alle Formate' },
+        { id: 'formats', label: 'In welchen Formaten?', help: 'Mehrfachauswahl. „Crops" bedeutet: aus einer großen Aufnahme schneide ich später Hoch-, Quer- und Quadratformat heraus — das wirkt einheitlich (gleiche Mimik, gleiches Licht) und ist günstiger als drei getrennte Sets.', type: 'multi', options: [
+          { v: 'hoch',     title: 'Hochformat',     sub: 'Klassiker für Profilbilder, Print, Magazin.' },
+          { v: 'quer',     title: 'Querformat',     sub: 'Website-Header, Banner, Querformat in Broschüren.' },
+          { v: 'quadrat',  title: 'Quadratisch',    sub: 'Social-Media-Posts, Instagram, Kacheln.' },
+          { v: 'allInOne', title: 'Eine Aufnahme, drei Crops', sub: 'Aus einem Bild werden Hoch + Quer + Quadrat geschnitten — preiswerter, sehr einheitlich.' },
         ]},
         { id: 'retouchStyle', label: 'Retusche-Stil', type: 'radio', options: [
           { v: 'natur',    title: 'Natürlich',         sub: 'Hautton ausgleichen, störende Elemente weg — Person bleibt erkennbar wie sie ist.' },
@@ -647,8 +928,26 @@
       id: 'budget',
       kicker: 'Budget',
       title: 'Budget — ehrlich gesprochen',
-      why: 'Ich arbeite lieber mit drei möglichen Paketen statt mit einem Wunschangebot — so seht ihr, wo der Wert liegt und was die Unterschiede ausmachen. Damit ich euch nicht über- oder unterfordere: in welcher Größenordnung bewegt sich euer Budget aktuell? Diese Angabe ist nicht bindend und beeinflusst, welche Setups ich vorschlage.',
+      why: 'Ich arbeite lieber mit drei möglichen Paketen statt mit einem Wunschangebot — so sehen Sie, wo der Wert liegt und was die Unterschiede ausmachen. Damit ich Sie nicht über- oder unterfordere: in welcher Größenordnung bewegt sich Ihr Budget aktuell? Diese Angabe ist nicht bindend und beeinflusst, welche Setups ich vorschlage.',
       fields: [
+        { id: '_budgetExample', type: 'info', html: `
+          <details class="rounded-2xl border border-line bg-sand/30 p-4">
+            <summary class="cursor-pointer flex items-center gap-2 text-[14px] font-medium">
+              <span class="caret">›</span>
+              <span>Eine ehrliche Beispielrechnung (zum Aufklappen)</span>
+            </summary>
+            <div class="mt-4 text-[14px] leading-relaxed text-graphite space-y-2">
+              <div><strong class="text-ink">Mittelständisches Unternehmen, 30 Mitarbeitende</strong></div>
+              <div class="tip"><div class="dot"></div><div>Ein Drehtag bei euch im Haus (mobile Studio-Anlage)</div></div>
+              <div class="tip"><div class="dot"></div><div>Visagistin für alle Mitarbeitenden</div></div>
+              <div class="tip"><div class="dot"></div><div>3 finale Bilder pro Person, mittlere Retusche</div></div>
+              <div class="tip"><div class="dot"></div><div>Online-Galerie für Bildauswahl, Lieferung in Web + Print-Qualität</div></div>
+              <div class="tip"><div class="dot"></div><div>Anreise innerhalb 100 km</div></div>
+              <div class="mt-3 text-ink font-medium">→ Erwartung: rund 3.500 – 5.000 €</div>
+              <div class="text-[13px] text-muted mt-2">Was den Preis nach oben treibt: weite Anreise, mehrere Tage, Editorial-Setups, sehr viele finale Bilder, Express-Lieferung. Was ihn unten hält: weniger Bilder pro Person, kein Studio-Aufbau, keine Visagistin.</div>
+            </div>
+          </details>
+        `},
         { id: 'budgetRange', label: 'Indikative Budget-Größenordnung', type: 'radio', options: [
           { v: '<1500',      title: 'Bis 1.500 €' },
           { v: '1500-3500',  title: '1.500 – 3.500 €' },
@@ -867,7 +1166,8 @@
       const lbl = document.createElement('label');
       lbl.className = 'block text-[14px] font-medium text-ink mb-2.5';
       lbl.htmlFor = `f-${f.id}`;
-      lbl.innerHTML = escapeHtml(f.label) + (f.required ? ' <span class="text-amber" aria-hidden="true">*</span>' : '');
+      const showStar = isRequired(f);
+      lbl.innerHTML = escapeHtml(f.label) + (showStar ? ' <span class="text-amber" aria-hidden="true">*</span>' : '');
       wrap.appendChild(lbl);
     }
 
@@ -1074,11 +1374,19 @@
   // ============================================================
   // VALIDATION
   // ============================================================
+  function isRequired(f) {
+    if (f.required) return true;
+    if (f.requiredIf) {
+      return state.answers[f.requiredIf.id] === f.requiredIf.value;
+    }
+    return false;
+  }
+
   function validateStep() {
     const step = STEPS[state.step];
     state.errors = {};
     (step.fields || []).forEach(f => {
-      if (!f.required) return;
+      if (!isRequired(f)) return;
       const v = state.answers[f.id];
       let invalid = false;
       if (v == null || v === '' || (Array.isArray(v) && v.length === 0)) invalid = true;
@@ -1212,16 +1520,23 @@
     return groups;
   }
 
+  function stepIndexById(id) {
+    return STEPS.findIndex(s => s.id === id);
+  }
+
   function renderSummary() {
     const container = document.createElement('div');
     container.className = 'space-y-3';
     summaryGroups().forEach(group => {
       const card = document.createElement('div');
       card.className = 'sum-card';
-      const title = document.createElement('div');
-      title.className = 'font-display text-lg mb-2 text-ink';
-      title.textContent = group.title;
-      card.appendChild(title);
+      const head = document.createElement('div');
+      head.className = 'flex items-center justify-between mb-2';
+      head.innerHTML = `
+        <div class="font-display text-lg text-ink">${escapeHtml(group.title)}</div>
+        <button type="button" class="q-toggle hover:text-ink underline-offset-2 hover:underline" data-edit-step="${escapeAttr(group.id)}">Bearbeiten</button>
+      `;
+      card.appendChild(head);
       group.rows.forEach(r => {
         const row = document.createElement('div');
         row.className = 'sum-row' + (r.question ? ' is-question' : '');
@@ -1233,7 +1548,283 @@
       });
       container.appendChild(card);
     });
+
+    // Bind edit links
+    setTimeout(() => {
+      container.querySelectorAll('[data-edit-step]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (isRendering) return;
+          const idx = stepIndexById(btn.dataset.editStep);
+          if (idx >= 0) {
+            state.step = idx;
+            render();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        });
+      });
+    }, 0);
+
+    // PDF / Print invitation card
+    const pdfCard = document.createElement('div');
+    pdfCard.className = 'mt-6 rounded-2xl border border-line bg-sand/40 p-5';
+    pdfCard.innerHTML = `
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 rounded-full bg-ink text-cream flex items-center justify-center shrink-0">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><rect x="6" y="14" width="12" height="8"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/></svg>
+        </div>
+        <div class="flex-1">
+          <div class="font-display text-lg text-ink leading-tight">Eure Planung als PDF mitnehmen</div>
+          <p class="text-[14px] text-muted mt-1.5 leading-relaxed">
+            Ein druckbares Dokument mit allen Antworten, einer fertigen Briefing-Mail für eure Mitarbeitenden, einer Checkliste für die Vorbereitung und einem klaren Fahrplan — zum Mitnehmen, Weitergeben, Abhaken.
+          </p>
+          <button type="button" id="btnPrintPdf" class="btn btn-outline mt-3">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><rect x="6" y="14" width="12" height="8"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/></svg>
+            Als PDF speichern / drucken
+          </button>
+        </div>
+      </div>
+    `;
+    container.appendChild(pdfCard);
+
+    setTimeout(() => {
+      const btn = container.querySelector('#btnPrintPdf');
+      if (btn) btn.addEventListener('click', () => printPdf());
+    }, 0);
+
     return container;
+  }
+
+  // ============================================================
+  // PDF / PRINT SHEET
+  // ============================================================
+  function printPdf() {
+    buildPrintSheet();
+    // Give the browser a tick to layout the print sheet, then print
+    setTimeout(() => window.print(), 60);
+  }
+
+  function buildPrintSheet() {
+    const a = state.answers;
+    const sheet = document.getElementById('printSheet');
+    if (!sheet) return;
+
+    const today = new Date();
+    const dateStr = today.toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' });
+
+    const fullName = [a.contactFirstName, a.contactLastName].filter(Boolean).join(' ') || a.contactFirstName || '—';
+    const companyName = a.companyName || '—';
+    const numPeople = a.numPeople || '—';
+    const desiredDate = a.desiredDate || 'noch offen';
+
+    // Look up style label
+    const styleStep = STEPS.find(s => s.id === 'style');
+    const styleField = styleStep && styleStep.fields.find(f => f.id === 'styleChoice');
+    const styleOpt = styleField && (styleField.options || []).find(o => o.v === a.styleChoice);
+    const styleLabel = styleOpt ? styleOpt.title : 'noch offen';
+
+    // Briefing email
+    const dressNote = {
+      firmenkleidung: 'Firmenkleidung gewünscht.',
+      businessLook:   'Business-Look, frei wählbar.',
+      smartCasual:    'Smart Casual.',
+      frei:           'Komplett frei — fühlt euch wohl.',
+      unklar:         'Wir geben den Dresscode noch bekannt.',
+    }[a.dresscode] || 'Smart Casual / Business-Look — fühlt euch wohl.';
+
+    const briefingEmail = `Betreff: Dein Termin für unser Mitarbeitershooting
+
+Hallo [Vorname],
+
+am [Datum] machen wir bei ${companyName} ein Mitarbeitershooting mit dem Fotografen ${CONFIG.photographerName}${a.visagistWanted && a.visagistWanted !== 'nein' ? ' und einer Visagistin' : ''}.
+
+Dein Zeitfenster: [Uhrzeit]
+Treffpunkt: [Raum / Adresse]
+Dauer: ca. 15 Minuten
+
+Damit wir gemeinsam möglichst gute Bilder bekommen, hier ein paar Tipps zur Vorbereitung:
+
+• Kleidung: Einfarbig wirkt am ruhigsten — auffällige Logos, feine Karos und enge Streifen flimmern im Bild. Gut sitzend, gebügelt. ${dressNote}
+
+• Vorabend: Genug Schlaf, viel Wasser, lieber kein Alkohol. Die Haut dankt es spürbar.
+
+• Brille: Wenn möglich entspiegelte Brille — sonst eine zweite Brille mit Demogläsern mitbringen. Reflexe kosten später Retusche.
+
+• Haare & Bart: Wie immer gepflegt. Frischer Haarschnitt drei bis fünf Tage vorher ist ideal — nicht am Vortag.
+
+• Hände & Nägel: Falls Hände im Bild sind (verschränkte Arme o. Ä.), bitte gepflegt und Nägel kurz.
+
+• Pünktlich, aber entspannt: Lieber 10 Minuten zu früh und kurz durchatmen, als gestresst ins Bild.
+
+Du bekommst später eine Auswahl der besten Bilder zur Sichtung${a.whoSelects === 'zentral' ? ' (Freigabe erfolgt durch [Marketing/HR])' : ''}.
+
+Wenn du dich nicht fotografieren lassen möchtest, melde dich gerne kurz bei mir — das ist völlig in Ordnung und absolut freiwillig.
+
+Bei Fragen bin ich da.
+
+Herzliche Grüße
+${a.contactFirstName || '[Dein Name]'}${a.contactRole ? ' · ' + a.contactRole : ''}`;
+
+    // Roadmap
+    const roadmap = [
+      { h: 'Ich melde mich bei euch', p: 'Innerhalb von 24 Stunden nach eurer Anfrage bekommt ihr eine erste Antwort von mir. Bei Bedarf ein kurzes Telefonat, um offene Punkte zu klären.' },
+      { h: 'Ihr bekommt ein Angebot', p: 'Drei Pakete mit klaren Leistungen und Preisen — keine Pauschal-Black-Box. Ihr seht, was der Unterschied ausmacht und welches Paket zu eurem Budget passt.' },
+      { h: 'Wir fixieren den Termin', p: 'Sobald ihr ein Paket bestätigt habt, halten wir den Termin schriftlich fest. Visagistin wird gebucht, Equipment eingeplant.' },
+      { h: 'Briefing & DSGVO', p: 'Ihr verschickt die Briefing-Mail (Vorlage in diesem Dokument) und sammelt die Einverständnis-Erklärungen ein. Bei Bedarf liefere ich euch eine geprüfte DSGVO-Vorlage.' },
+      { h: 'Der Shooting-Tag', p: 'Ich komme rechtzeitig zum Aufbau, wir laufen die Liste durch, ihr bekommt zwischendurch erste Vorschau-Bilder zu sehen.' },
+      { h: 'Bildauswahl & Lieferung', p: 'Innerhalb weniger Tage nach dem Shooting bekommt ihr eine Online-Galerie mit der Auswahl. Nach eurer Freigabe retuschiere ich die finalen Bilder und liefere sie in den gewünschten Formaten.' },
+    ];
+
+    // Build HTML
+    const html = `
+      <!-- Page 1: Cover -->
+      <section class="print-page">
+        <div class="print-eyebrow">${escapeHtml(CONFIG.studioName || 'Mitarbeiterportraits')} · Planungsdokument · ${escapeHtml(dateStr)}</div>
+        <h1 class="print-h1">Eure Shooting-Planung</h1>
+        <p class="print-lede">
+          Vorbereitet von ${escapeHtml(fullName)}${a.contactRole ? ', ' + escapeHtml(a.contactRole) : ''} für ${escapeHtml(companyName)}.
+          Dieses Dokument fasst zusammen, was wir gemeinsam besprochen haben, und enthält alles, was ihr für die Vorbereitung braucht.
+        </p>
+
+        <div class="print-stats">
+          <div>
+            <div class="print-stat-label">Personen</div>
+            <div class="print-stat-value">${escapeHtml(String(numPeople))}</div>
+          </div>
+          <div>
+            <div class="print-stat-label">Wunschtermin</div>
+            <div class="print-stat-value">${escapeHtml(String(desiredDate))}</div>
+          </div>
+          <div>
+            <div class="print-stat-label">Stilrichtung</div>
+            <div class="print-stat-value">${escapeHtml(styleLabel)}</div>
+          </div>
+        </div>
+
+        <div class="print-toc">
+          <div class="print-toc-title">In diesem Dokument</div>
+          <ol>
+            <li><span class="n">01</span><span>Eure Antworten im Detail</span></li>
+            <li><span class="n">02</span><span>Vorlage: Briefing-Mail für eure Mitarbeitenden</span></li>
+            <li><span class="n">03</span><span>Checkliste: Vorbereitung Schritt für Schritt</span></li>
+            <li><span class="n">04</span><span>Wie es jetzt weitergeht</span></li>
+          </ol>
+        </div>
+
+        <div class="print-meta">
+          Kontakt: ${escapeHtml(CONFIG.photographerName)} · <a href="mailto:${escapeHtml(CONFIG.email)}">${escapeHtml(CONFIG.email)}</a>${CONFIG.phone ? ' · ' + escapeHtml(CONFIG.phone) : ''}${CONFIG.website ? ' · ' + escapeHtml(CONFIG.website) : ''}
+        </div>
+      </section>
+
+      <!-- Page 2: Detail Answers -->
+      <section class="print-page">
+        <div class="print-eyebrow">01 — Eure Antworten</div>
+        <h2 class="print-h2">Eure Antworten im Detail</h2>
+        <p class="print-lede">
+          Was ihr im Shooting-Kompass durchgegangen seid — übersichtlich für eure Akten, zum Abstimmen mit Vorgesetzten und Kolleginnen.
+        </p>
+        ${summaryGroups().map(group => `
+          <div class="print-group">
+            <h3 class="print-h3">${escapeHtml(group.title)}</h3>
+            ${group.rows.map(r => r.question
+              ? `<div class="print-question"><strong>Frage an ${escapeHtml(CONFIG.photographerName)}:</strong> ${escapeHtml(String(r.value))}</div>`
+              : `<div class="print-row"><div class="print-key">${escapeHtml(r.key)}</div><div class="print-val">${escapeHtml(String(r.value))}</div></div>`
+            ).join('')}
+          </div>
+        `).join('')}
+      </section>
+
+      <!-- Page 3: Briefing Mail -->
+      <section class="print-page">
+        <div class="print-eyebrow">02 — Briefing-Mail</div>
+        <h2 class="print-h2">Mail-Vorlage für eure Mitarbeitenden</h2>
+        <p class="print-lede">
+          Versendet diese Mail circa eine Woche vor dem Shooting. Die Platzhalter in eckigen Klammern (z. B. [Vorname], [Datum]) ersetzt ihr — alles andere ist bereits passend zu eurer Auswahl formuliert.
+        </p>
+        <div class="print-email-meta">Absender: ${escapeHtml(a.briefingContact || fullName)} · An: alle teilnehmenden Mitarbeitenden</div>
+        <div class="print-email">${escapeHtml(briefingEmail)}</div>
+      </section>
+
+      <!-- Page 4: Checklist -->
+      <section class="print-page">
+        <div class="print-eyebrow">03 — Checkliste</div>
+        <h2 class="print-h2">Vorbereitung Schritt für Schritt</h2>
+        <p class="print-lede">
+          Eine Checkliste, die euch durch die Wochen vor dem Shooting begleitet. Abhaken, was erledigt ist — entspannt am Tag selbst sein.
+        </p>
+
+        <div class="print-checklist">
+          <div class="print-checklist-section">
+            <div class="print-checklist-title">2–3 Wochen vorher</div>
+            <div class="print-check"><div class="print-check-box"></div><div>Termin in den Kalendern der teilnehmenden Mitarbeitenden blocken</div></div>
+            <div class="print-check"><div class="print-check-box"></div><div>DSGVO-Einverständniserklärungen einsammeln (Vorlage von ${escapeHtml(CONFIG.photographerName)} bei Bedarf anfordern)</div></div>
+            <div class="print-check"><div class="print-check-box"></div><div>Geeigneten Raum reservieren: ca. 4 × 4 m frei, Steckdose, ruhig</div></div>
+            ${a.visagistWanted && a.visagistWanted !== 'nein' ? '<div class="print-check"><div class="print-check-box"></div><div>Garderobe / ruhigen Raum für die Visagistin organisieren</div></div>' : ''}
+            <div class="print-check"><div class="print-check-box"></div><div>Markenrichtlinien / CI an ${escapeHtml(CONFIG.photographerName)} weitergeben (falls vorhanden)</div></div>
+          </div>
+
+          <div class="print-checklist-section">
+            <div class="print-checklist-title">1 Woche vorher</div>
+            <div class="print-check"><div class="print-check-box"></div><div>Briefing-Mail an alle teilnehmenden Mitarbeitenden verschicken (Vorlage auf Seite 3)</div></div>
+            <div class="print-check"><div class="print-check-box"></div><div>Zeitplan pro Person aufstellen (ca. 15 Min/Person, Geschäftsführung möglichst früh)</div></div>
+            <div class="print-check"><div class="print-check-box"></div><div>Parkmöglichkeit / Anlieferung mit Equipment klären</div></div>
+            <div class="print-check"><div class="print-check-box"></div><div>Empfang / Pforte über die Anreise informieren${(a.logistics||[]).includes('security') ? ' (Werksausweis vorbereiten)' : ''}</div></div>
+          </div>
+
+          <div class="print-checklist-section">
+            <div class="print-checklist-title">1 Tag vorher</div>
+            <div class="print-check"><div class="print-check-box"></div><div>Erinnerungsmail an alle Mitarbeitenden senden</div></div>
+            <div class="print-check"><div class="print-check-box"></div><div>Wasser, Snacks, Spiegel im Vorraum bereitstellen</div></div>
+            <div class="print-check"><div class="print-check-box"></div><div>Raum vorbereiten: Möbel beiseite, Wand frei</div></div>
+          </div>
+
+          <div class="print-checklist-section">
+            <div class="print-checklist-title">Am Tag</div>
+            <div class="print-check"><div class="print-check-box"></div><div>Empfang briefen — ${escapeHtml(CONFIG.photographerName)} kommt rechtzeitig zum Aufbau</div></div>
+            <div class="print-check"><div class="print-check-box"></div><div>Eine Ansprechperson vor Ort, die durch die Liste führt</div></div>
+            <div class="print-check"><div class="print-check-box"></div><div>Bei spontanen Absagen: Backup-Person aus der Liste hochziehen</div></div>
+            <div class="print-check"><div class="print-check-box"></div><div>Pausen einplanen — ein Mitarbeitershooting ist auch für uns konzentrierte Arbeit</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page 5: Roadmap -->
+      <section class="print-page">
+        <div class="print-eyebrow">04 — So geht's weiter</div>
+        <h2 class="print-h2">Was nach dem Absenden passiert</h2>
+        <p class="print-lede">
+          Damit klar ist, wann ihr was von mir hört — und was ihr in der Zwischenzeit selbst anstoßen könnt.
+        </p>
+
+        <div class="print-roadmap">
+          ${roadmap.map(r => `
+            <div class="print-roadmap-step">
+              <div class="print-roadmap-num"></div>
+              <div>
+                <h4>${escapeHtml(r.h)}</h4>
+                <p>${escapeHtml(r.p)}</p>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+
+        <hr class="print-rule" />
+
+        <p class="print-body">
+          Fragen oder Änderungen? Schreibt mir oder ruft an — lieber einmal zu oft als einmal zu wenig. Mitarbeitershootings funktionieren am besten, wenn alle gut informiert sind.
+        </p>
+
+        <div class="print-signature">
+          Bis bald,<br/>
+          ${escapeHtml(CONFIG.photographerName)}
+        </div>
+
+        <div class="print-meta">
+          <a href="mailto:${escapeHtml(CONFIG.email)}">${escapeHtml(CONFIG.email)}</a>${CONFIG.phone ? ' · ' + escapeHtml(CONFIG.phone) : ''}${CONFIG.website ? ' · ' + escapeHtml(CONFIG.website) : ''}
+        </div>
+      </section>
+    `;
+
+    sheet.innerHTML = html;
   }
 
   // Triage flags for your inbox
@@ -1317,8 +1908,14 @@
           <a href="${mailto}" class="btn btn-primary justify-center" id="goMailto">
             Per E-Mail an ${escapeHtml(CONFIG.photographerName)} senden
           </a>
-          <button class="btn btn-outline" id="copyBody" type="button">Inhalte in Zwischenablage kopieren</button>
-          <button class="btn btn-outline" id="downloadBody" type="button">Als Textdatei herunterladen</button>
+          <button class="btn btn-outline" id="savePdf" type="button">Vorher als PDF speichern (mit Briefing-Mail & Checkliste)</button>
+          <details class="mt-1">
+            <summary class="q-toggle cursor-pointer text-center pt-1">Weitere Optionen</summary>
+            <div class="flex flex-col gap-2.5 mt-3">
+              <button class="btn btn-outline" id="copyBody" type="button">Inhalte in Zwischenablage kopieren</button>
+              <button class="btn btn-outline" id="downloadBody" type="button">Als Textdatei herunterladen</button>
+            </div>
+          </details>
         </div>
         <div class="mt-5 pt-5 border-t border-line flex items-center justify-between">
           <button class="q-toggle hover:text-ink underline-offset-2 hover:underline" id="closeModal" type="button">Zurück</button>
@@ -1331,6 +1928,9 @@
     overlay.querySelector('#closeModal').addEventListener('click', () => overlay.remove());
     overlay.querySelector('#goMailto').addEventListener('click', () => {
       setTimeout(() => { overlay.remove(); showThankYou(); }, 400);
+    });
+    overlay.querySelector('#savePdf').addEventListener('click', () => {
+      printPdf();
     });
     overlay.querySelector('#copyBody').addEventListener('click', async () => {
       try {
